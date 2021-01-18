@@ -69,7 +69,7 @@ void loop() {
     digitalWrite(backLight, HIGH); 
     timeElapsed=0;
     lcd.setCursor(0, 0);
-    lcd.print("lathe hands :) ");
+    lcd.print("lather hands :) ");
     lcd.setCursor(0, 1);
     lcd.print("  ");
    
