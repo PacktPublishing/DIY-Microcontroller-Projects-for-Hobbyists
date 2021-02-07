@@ -16,6 +16,7 @@
  */
 #include <LiquidCrystal_I2C.h> //library for controlling the LCD using I2C protocol
 LiquidCrystal_I2C lcd(0x27, 16, 2);// Sets LCD address to 0x27 for a 16 characters and 2 lines display
+//The library can be downloaded from: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
 
 #include <Wire.h> //controls I2C protocol
 #define SLAVEADDRESS 0x8  //Arduino Uno's peripheral (slave) address
