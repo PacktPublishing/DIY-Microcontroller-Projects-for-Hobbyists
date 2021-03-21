@@ -2,7 +2,7 @@
 
 ## A project-based introduction to building embedded applications on PIC and STM32 boards with C programming
 
-### Miguel Ángel García-Ruiz, Pedro César Santana-Mancilla
+### Miguel Angel Garcia-Ruiz, Pedro César Santana-Mancilla
 
 This book is intended for students, hobbyists, geeks, and engineers alike who wish to dive into the world of embedded systems and microcontroller programming. This book is intended for entry-level beginners of digital electronics and microcontrollers.
 
