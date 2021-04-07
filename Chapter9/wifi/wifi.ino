@@ -4,7 +4,7 @@ void setup()
 {
   Serial.begin(115200);
 
-  WiFi.begin("nombre-red", "contraseña-red");
+  WiFi.begin("YOUR_SSID", "YOUR_PASSWORD");
 
   while (WiFi.status() != WL_CONNECTED)
   {
