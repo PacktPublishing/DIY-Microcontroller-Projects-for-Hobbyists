@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 
-const char* ssid     = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+const char* ssid = "Your_SSID";
+const char* password = "Your_Password";
 
 WiFiServer server(80);
 
@@ -16,7 +16,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(fromStm32Pin, INPUT);
 
-  Serial.print("Connecting to ");
+  Serial.print("Connecting to WiFi network: ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -58,25 +58,28 @@ void loop(){
 
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            client.println("<link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.2/css/all.css\" crossorigin=\"anonymous\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
             client.println("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
-            client.println(".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;");
-            client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
+            client.println(".sensorButton { background-color:#f9f9f9; border-radius:6px; border:1px solid #dcdcdc; display:inline-block;");
+            client.println("cursor:pointer; color:#666666; font-size:24px; padding:12px 30px; text-decoration:none; }");
+            client.println(".sensorButton:hover { background-color:#e9e9e9; }");
+            client.println(".sensorButton:active { position:relative; top:1px; }");
             client.println("</style></head>");
 
             client.println("<body><h1>IoT plant pot moisture</h1>");
 
             if (sensorValue == 1) {
               client.println("<p>Soil is too dry</p>");
-              client.println("<p><img width=\"50\" height=\"60\" src=\"https://cdn.pixabay.com/photo/2017/09/03/15/13/death-2710640_1280.png\"></p>");
+              client.println("<p><img width=\"50\" height=\"60\" src=\"https://raw.githubusercontent.com/PacktPublishing/Creative-DIY-Microcontroller-Projects/master/Chapter10/images/dry_plant.png\"></p>");
             } else if (sensorValue == 0)  {
               client.println("<p>Soil is moist enough</p>");
-              client.println("<p><img width=\"50\" height=\"60\" src=\"https://cdn.pixabay.com/photo/2013/07/13/11/51/earth-158806_1280.png\"></p>");
+              client.println("<p><img width=\"50\" height=\"60\" src=\"https://raw.githubusercontent.com/PacktPublishing/Creative-DIY-Microcontroller-Projects/master/Chapter10/images/green_plant.png\"></p>");
             } else {
-              Serial.println("Press the button to read the sensor");
+              client.println("<p>Press the button to read the sensor</p>");
             }
 
-            client.println("<p><a href=\"/read\"><button class=\"button\">Read sensor</button></a></p>");
+            client.println("<p><a href=\"/4/read\"><button class=\"sensorButton\"><i class=\"fas fa-satellite-dish\"></i> Read sensor</button></a></p>");
 
             client.println("</body></html>");
 
