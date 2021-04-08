@@ -1,3 +1,12 @@
+/**
+  Creative DIY Microcontroller Projects, published by Packt
+  Chapter 10: IoT plant pot moisture sensor.
+  Read sensor values from the SMT32 Blue Pill and creates a web server to display the data.
+  By Pedro Santana
+  Ver. 1
+  April, 2021
+  
+*/
 #include <ESP8266WiFi.h>
 
 const char* ssid = "Your_SSID";
@@ -15,7 +24,6 @@ const long timeoutTime = 2000;
 void setup() {
   Serial.begin(115200);
   pinMode(fromStm32Pin, INPUT);
-
   Serial.print("Connecting to WiFi network: ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
@@ -58,6 +66,7 @@ void loop(){
 
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            client.println("<title>IoT plant pot moisture</title>");
             client.println("<link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.2/css/all.css\" crossorigin=\"anonymous\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
             client.println("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");

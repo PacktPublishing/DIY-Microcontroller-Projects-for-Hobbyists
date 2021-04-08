@@ -1,3 +1,13 @@
+/**
+  Creative DIY Microcontroller Projects, published by Packt
+  Chapter 10: IoT plant pot moisture sensor.
+  Soil moisture sensor with SMT32 Blue Pill.
+  By Pedro Santana
+  Ver. 1
+  April, 2021
+  
+*/
+
 const int sensorPin = PB12;
 const int toInternetPin = PC13;
 
