@@ -14,7 +14,7 @@ This book is intended for students, hobbyists, geeks, and engineers alike who wi
 4.	Measuring the amount of light with a photoresistor.
 5.	Humidity and temperature measurement.
 6.	Morse code S.O.S visual alarm with a bright LED.
-7.	Clap switch: using a simple microphone to detect two clapping sounds in a row.
+7.	Creating a Clap switch.
 8.	Gas sensor.
 9.	IoT temperature-logging system.
 10.	IoT plant pot moisture sensor.
