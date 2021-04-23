@@ -7,7 +7,7 @@
   April, 2021
 */
 
-const int pinBuzzer = PC13;
+const int pinBuzzer = PB12;
 
 void setup() { }
 

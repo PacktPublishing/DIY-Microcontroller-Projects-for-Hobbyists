@@ -9,7 +9,7 @@
 
 const int pinTrigger = PC14;
 const int pinEcho = PC13;
-const int pinBuzzer = PC15;
+const int pinBuzzer = PB12;
 const int distanceSafety = 200;
 
 long soundWaveTime;
