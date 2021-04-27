@@ -2,6 +2,7 @@
   Creative DIY Microcontroller Projects, published by Packt
   Chapter 13: COVID-19 two-meter distance meter.
   Writing a program to play a sound with the piezo buzzer.
+  STM32 Blue Pill
   By Pedro Santana
   Ver. 1
   April, 2021 
@@ -31,7 +32,13 @@ void loop()
   soundWaveTime = pulseIn(pinEcho, HIGH);
   distanceMeasurement = soundWaveTime/59;
 
+  Serial.print("Distance: ");
+  Serial.print(distanceMeasurement);
+  Serial.println("cm");
+  delay(500);
+
   if (distanceMeasurement < distanceSafety) {
+    Serial.println("Sound alert");
     tone(pinBuzzer, 1200);
     delay(250);
   
