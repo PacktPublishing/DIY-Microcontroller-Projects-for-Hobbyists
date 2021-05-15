@@ -2,18 +2,8 @@
   Creative DIY Microcontroller Projects, published by Packt
   Chapter 7: Clap switch: using a simple microphone to detect two clapping sounds in a row.
   Exercice 1: A LED will blink after a clap is detected by the mic sensor.
-  Ver. 1
-  August, 2020
-  
-  
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
-  
+  Ver. 2
+  May, 2021
 */
 
 const int MicAnalogPin = 0;                   // analog input pin
@@ -28,10 +18,14 @@ void setup() {
 
 void loop() {
   int SoundValue = analogRead(MicAnalogPin);  // read sensor data from analog pin
+  Serial.print("Sound value: ");              // debug information
+  Serial.println(SoundValue);
   if (SoundValue > ClapThreshold) {           // clap detected?
+    Serial.println("A clap was detected");    // debug information
     digitalWrite(LedDigitalPin, HIGH);        // turn led on
     delay(1000);                               // a second pause
   } else {
+    Serial.println("No clap detected");       // debug information
     digitalWrite(LedDigitalPin, LOW);         // turn led off
   }
 }
