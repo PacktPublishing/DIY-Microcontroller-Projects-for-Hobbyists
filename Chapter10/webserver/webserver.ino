@@ -1,12 +1,11 @@
 /**
-  Creative DIY Microcontroller Projects, published by Packt
+  Creative DIY Microcontroller Projects with C, published by Packt
   Chapter 10: IoT plant pot moisture sensor.
   Read sensor values from the SMT32 Blue Pill 
   and creates on the NodeMCU a web server to display the data.
   By Pedro Santana
   Ver. 1
   April, 2021
-  
 */
 #include <ESP8266WiFi.h>
 

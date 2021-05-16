@@ -1,3 +1,11 @@
+/**
+  Creative DIY Microcontroller Projects with C, published by Packt
+  Chapter 9: IoT temperature-logging system.
+  Read temperature sensor values from the SMT32 Blue Pill.
+  By Pedro Santana
+  Ver. 1
+  March, 2021
+*/
 #include <DallasTemperature.h>
 
 #define PIN_1_WIRE PB12

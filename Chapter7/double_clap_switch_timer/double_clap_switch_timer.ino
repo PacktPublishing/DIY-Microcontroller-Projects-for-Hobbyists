@@ -1,20 +1,9 @@
 /**
-  Creative DIY Microcontroller Projects, published by Packt
+  Creative DIY Microcontroller Projects with C, published by Packt
   Chapter 7: Clap switch: using a simple microphone to detect two clapping sounds in a row.
   Exercice 3: A LED will blink after two claps are detected by the mic sensor in a timeframe.
-
   Ver. 1
   August, 2020
-  
-
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- 
 */
 
 const int MicAnalogPin = 0;                   // analog input pin

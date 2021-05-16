@@ -1,5 +1,5 @@
 /**
-  Creative DIY Microcontroller Projects, published by Packt
+  Creative DIY Microcontroller Projects with C, published by Packt
   Chapter 13: COVID-19 two-meter distance meter.
   Programming a piezoelectric buzzer.
   By Pedro Santana
