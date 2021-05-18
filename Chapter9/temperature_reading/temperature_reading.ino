@@ -14,15 +14,15 @@ OneWire pinWire(PIN_1_WIRE);
 DallasTemperature sensors(&pinWire);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   sensors.begin();
 }
 
 void loop() {
   sensors.requestTemperatures();
   int temp = sensors.getTempCByIndex(0);
-  Serial.print("Temp = ");
+  Serial.print("Temperature = ");
   Serial.print(temp); 
-  Serial.println(" C");
+  Serial.println(" ºC");
   delay(1000);
 }
