@@ -11,11 +11,11 @@ We live in a world surrounded by electronic devices, and microcontrollers are th
 
 This book covers the following exciting features:
 * Get to grips with the basics of digital and analog electronics.
-* Design, build, program, and test a microcontroller-based system
-Understand the importance and applications of STM32 and PIC microcontrollers
-* Discover how to connect sensors to microcontroller boards
-* Find out how to obtain sensor data via coding
-* Use microcontroller boards in real life and practical projects
+* Design, build, program, and test a microcontroller-based system.
+* Understand the importance and applications of STM32 and PIC microcontrollers.
+* Discover how to connect sensors to microcontroller boards.
+* Find out how to obtain sensor data via coding.
+* Use microcontroller boards in real life and practical projects.
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1800564139) today!
 
