@@ -18,53 +18,77 @@
  
 */
 #define PinLED PB12
-#define Pinpushbutton PB0
+#define PinPushButton PB0
+
+class PushButtonHelper {
+  public: 
+    PushButtonHelper(int PinPushBtn) {
+      PIN_PUSH_BUTTON = PinPushBtn;
+    }
+
+    int read_status() {
+      current_reading = digitalRead(PIN_PUSH_BUTTON);
+      // check to see if you just pressed the button
+      // (i.e. the input went from LOW to HIGH), and you've waited long enough
+      // since the last press to ignore any noise:
+
+      // If the switch changed, due to noise or pressing:
+      // reset the debouncing timer
+      reset_debouncing_timer();
+
+      // whatever the reading is at, it's been there for longer than the debounce
+      // delay, so take it as the actual current state:
+      if (isTimeElapsedLessThanOurDefaultDelayTime() && pushButtonStateChanged()) {
+        // if the button state has changed:
+        button_state = current_reading;
+
+        // only toggle the Value/LED if the new button state is HIGH
+        if (isButtonActivelyPressed()) {
+          status = !status;
+        } 
+      }
+
+      // save the reading. Next time through the loop, it'll be the lastButtonState:
+      last_button_state = current_reading;
+      return status;
+    }
+
+  private: 
+    int PIN_PUSH_BUTTON;                    // port to read from
+    unsigned long last_debouncing_time = 0; // the last time the output pin was toggled
+    unsigned long debouncing_delay = 50;    // the debounce time; increase if the output flickers
+    int status = HIGH;                      // the current state of the output pin
+    int button_state;                       // the current reading from the input pin
+    int last_button_state = LOW;            // the previous reading from the input pin
+    int current_reading;
+
+    void reset_debouncing_timer() {
+      if(current_reading != last_button_state) {
+        last_debouncing_time = millis();
+      }
+    }
+
+    int isTimeElapsedLessThanOurDefaultDelayTime() {
+      return (millis() - last_debouncing_time) > debouncing_delay;
+    }
+
+    int pushButtonStateChanged() {
+      return current_reading != button_state;
+    }
+
+    int isButtonActivelyPressed() {
+      return button_state == HIGH;
+    }
+} button_handler(PinPushButton);
 
 void setup() {
   pinMode(PinLED, OUTPUT);
-  pinMode(Pinpushbutton, INPUT_PULLUP);
+  pinMode(PinPushButton, INPUT_PULLUP);
 }
 
- int reading_pushbutton;
- int ledState = HIGH;         // the current state of the output pin
-  int buttonState;             // the current reading from the input pin
-  int lastButtonState = LOW;   // the previous reading from the input pin
-  unsigned long lastDebouncingTime = 0;  // the last time the output pin was toggled
-  unsigned long debouncingDelay = 50;    // the debounce time; increase if the output flickers
-  
 void loop() {
-
-  reading_pushbutton=digitalRead(Pinpushbutton);
-  // check to see if you just pressed the button
-  // (i.e. the input went from LOW to HIGH), and you've waited long enough
-  // since the last press to ignore any noise:
-
-  // If the switch changed, due to noise or pressing:
-  if (reading_pushbutton!= lastButtonState) {
-    // reset the debouncing timer
-    lastDebouncingTime = millis();
-  }
-
-  if ((millis() - lastDebouncingTime) > debouncingDelay) {
-    // whatever the reading is at, it's been there for longer than the debounce
-    // delay, so take it as the actual current state:
-
-    // if the button state has changed:
-    if (reading_pushbutton!=buttonState) {
-      buttonState = reading_pushbutton;
-
-      // only toggle the LED if the new button state is HIGH
-      if (buttonState == HIGH) {
-        ledState = !ledState;
-      }
-    }
-  }
-
-  // set the LED:
-  digitalWrite(PinLED, ledState);
-
-  // save the reading. Next time through the loop, it'll be the lastButtonState:
-  lastButtonState = reading_pushbutton;
-    
+  int led_status = button_handler.read_status();
   
+  // set the LED:
+  digitalWrite(PinLED, led_status);
 }
